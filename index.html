@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ff5a36" />
+  <meta name="description" content="주제 한 줄로 인스타그램 카드뉴스를 만드는 스마트 제작 스튜디오" />
+  <title>카드메이트 — 인스타그램 카드뉴스 제작 스튜디오</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+  <style>.insta-card{container-type:inline-size}</style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="카드메이트 홈">
+        <span class="brand-mark"><i></i><i></i><i></i></span>
+        <span>카드메이트</span>
+        <small>STUDIO</small>
+      </a>
+      <div class="topbar-actions">
+        <span class="save-state"><span class="save-dot"></span> 자동 저장됨</span>
+        <button class="ghost-button" id="newProjectBtn">새 프로젝트</button>
+        <button class="primary-button compact" id="downloadTopBtn"><span>↓</span> PNG 저장</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="control-panel">
+        <div class="panel-heading">
+          <span class="eyebrow">CREATE YOUR STORY</span>
+          <h1>어떤 이야기를<br>만들어 볼까요?</h1>
+          <p>주제 한 줄이면, 넘기고 싶은 카드뉴스가 완성돼요.</p>
+        </div>
+
+        <form id="generatorForm">
+          <label class="field-label" for="topicInput"><span>01</span> 주제를 입력하세요</label>
+          <div class="topic-wrap">
+            <textarea id="topicInput" maxlength="80" rows="3" placeholder="예: 하루 10분 독서가 만드는 놀라운 변화">하루 10분 독서가 만드는 놀라운 변화</textarea>
+            <span id="charCount">24 / 80</span>
+          </div>
+
+          <div class="suggestions" aria-label="추천 주제">
+            <button type="button" data-topic="초보자를 위한 재테크 습관 5가지"># 재테크</button>
+            <button type="button" data-topic="직장인을 위한 번아웃 예방 루틴"># 자기계발</button>
+            <button type="button" data-topic="집에서도 맛있는 홈카페 레시피"># 라이프</button>
+          </div>
+
+          <div class="field-row">
+            <div>
+              <label class="field-label" for="audienceSelect"><span>02</span> 누구에게</label>
+              <div class="select-wrap"><select id="audienceSelect"><option>20–30대 직장인</option><option>콘텐츠 크리에이터</option><option>초보 창업가</option><option>대학생</option><option>모든 사람</option></select></div>
+            </div>
+            <div>
+              <label class="field-label" for="toneSelect"><span>03</span> 어떤 톤으로</label>
+              <div class="select-wrap"><select id="toneSelect"><option value="friendly">친근하고 쉽게</option><option value="professional">전문적이고 신뢰감 있게</option><option value="bold">짧고 강렬하게</option><option value="warm">따뜻하고 공감되게</option></select></div>
+            </div>
+          </div>
+
+          <div class="length-control">
+            <label class="field-label" for="slideRange"><span>04</span> 카드 수 <strong id="slideCountLabel">7장</strong></label>
+            <input id="slideRange" type="range" min="5" max="10" value="7" />
+            <div class="range-labels"><span>5장</span><span>10장</span></div>
+          </div>
+
+          <button class="generate-button" type="submit"><span class="spark">✦</span><span>카드뉴스 만들기<small>약 3초면 충분해요</small></span><span class="arrow">→</span></button>
+        </form>
+
+        <div class="tip-card"><span>TIP</span><p><b>구체적인 주제</b>를 입력할수록 더 좋은 결과가 나와요.</p></div>
+      </aside>
+
+      <section class="preview-stage">
+        <div class="preview-toolbar">
+          <div><span class="status-pill">LIVE PREVIEW</span><strong id="projectTitle">하루 10분 독서</strong></div>
+          <div class="zoom-tools"><button id="zoomOut" aria-label="축소">−</button><span id="zoomValue">82%</span><button id="zoomIn" aria-label="확대">＋</button></div>
+        </div>
+
+        <div class="canvas-area">
+          <button class="nav-arrow left" id="prevSlide" aria-label="이전 카드">←</button>
+          <div class="card-frame" id="cardFrame">
+            <article class="insta-card theme-orange layout-cover" id="instaCard" aria-live="polite">
+              <div class="card-decoration deco-a"></div>
+              <div class="card-decoration deco-b"></div>
+              <div class="card-topline"><span class="card-category">BETTER HABIT</span><span class="card-number">01 / 07</span></div>
+              <div class="card-content">
+                <span class="card-kicker">매일 딱 10분</span>
+                <h2 class="card-title">독서가 만드는<br><em>놀라운 변화</em></h2>
+                <p class="card-body">바쁜 하루에도 부담 없이 시작하는<br>가장 확실한 성장 습관</p>
+              </div>
+              <div class="book-graphic" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="card-footer"><span>@cardmate.studio</span><span>SWIPE →</span></div>
+            </article>
+          </div>
+          <button class="nav-arrow right" id="nextSlide" aria-label="다음 카드">→</button>
+        </div>
+
+        <div class="slide-strip-wrap">
+          <div class="strip-head"><span><b id="currentLabel">1</b> / <span id="totalLabel">7</span> 카드</span><button id="addSlideBtn">＋ 카드 추가</button></div>
+          <div class="slide-strip" id="slideStrip"></div>
+        </div>
+      </section>
+
+      <aside class="editor-panel">
+        <div class="editor-head"><div><span class="eyebrow">QUICK EDIT</span><h2>카드 다듬기</h2></div><button id="resetCardBtn" title="현재 카드 초기화">↻</button></div>
+
+        <div class="editor-section">
+          <label class="field-label"><span>A</span> 텍스트</label>
+          <label class="mini-label" for="kickerEdit">작은 제목</label>
+          <input class="text-input" id="kickerEdit" value="매일 딱 10분" maxlength="40" />
+          <label class="mini-label" for="titleEdit">메인 제목</label>
+          <textarea class="text-input" id="titleEdit" rows="3" maxlength="70">독서가 만드는 놀라운 변화</textarea>
+          <label class="mini-label" for="bodyEdit">설명</label>
+          <textarea class="text-input" id="bodyEdit" rows="3" maxlength="100">바쁜 하루에도 부담 없이 시작하는 가장 확실한 성장 습관</textarea>
+        </div>
+
+        <div class="editor-section">
+          <label class="field-label"><span>B</span> 컬러 테마</label>
+          <div class="palette-grid" id="paletteGrid">
+            <button class="palette active" data-theme="orange" aria-label="선셋 오렌지"><i style="--a:#ff5a36;--b:#ffcf56;--c:#17263c"></i></button>
+            <button class="palette" data-theme="blue" aria-label="에디토리얼 블루"><i style="--a:#2354d8;--b:#c8ff5c;--c:#f5f0e8"></i></button>
+            <button class="palette" data-theme="forest" aria-label="포레스트 그린"><i style="--a:#134e43;--b:#f0a96d;--c:#f4eddf"></i></button>
+            <button class="palette" data-theme="mono" aria-label="모던 모노"><i style="--a:#161616;--b:#f2f2f0;--c:#ff5a36"></i></button>
+          </div>
+        </div>
+
+        <div class="editor-section">
+          <label class="field-label"><span>C</span> 레이아웃</label>
+          <div class="layout-grid" id="layoutGrid"><button class="layout-choice active" data-layout="cover"><i>가</i><span>표지형</span></button><button class="layout-choice" data-layout="center"><i>가</i><span>중앙형</span></button><button class="layout-choice" data-layout="quote"><i>“</i><span>메시지형</span></button></div>
+        </div>
+
+        <div class="editor-bottom">
+          <button class="outline-button" id="copyCaptionBtn">캡션 복사</button>
+          <button class="primary-button" id="downloadBtn">현재 카드 PNG</button>
+        </div>
+      </aside>
+    </main>
+    <div class="toast" id="toast" role="status"></div>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
