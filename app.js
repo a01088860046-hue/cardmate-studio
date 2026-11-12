@@ -531,14 +531,14 @@ function downloadFile(file, name) {
 }
 
 function route() {
-  const view = ["drafts", "guide", "cardnews"].includes(location.hash.slice(1)) ? location.hash.slice(1) : "write";
+  const view = ["write", "drafts", "guide"].includes(location.hash.slice(1)) ? location.hash.slice(1) : "cardnews";
   for (const section of all("main > section")) section.hidden = section.id !== "view-" + view;
   for (const link of all("[data-nav]")) {
     if (link.dataset.nav === view) link.setAttribute("aria-current", "page");
     else link.removeAttribute("aria-current");
   }
   document.querySelector("main").classList.toggle("cardnews-mode", view === "cardnews");
-  document.querySelector(".top-label").textContent = view === "cardnews" ? "인스타그램 콘텐츠 워크스페이스" : "콘텐츠 워크스페이스";
+  document.querySelector(".top-label").textContent = view === "cardnews" ? "인스타그램 콘텐츠 워크스페이스" : "블로그 콘텐츠 워크스페이스";
   document.querySelector(".naver-tag").hidden = view === "cardnews";
   if (view === "drafts") renderDrafts();
 }

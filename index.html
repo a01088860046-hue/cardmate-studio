@@ -25,28 +25,28 @@
   <symbol id="cards" viewBox="0 0 24 24"><rect x="4" y="3" width="14" height="17" rx="2"/><path d="M8 7h6M8 11h6M8 15h4M18 7h2v13a2 2 0 0 1-2 2H8"/></symbol>
 </svg>
 <header class="topbar">
-  <a class="brand" href="#write"><span class="brand-icon"><svg><use href="#logo"/></svg></span><span>김영숙부동산 <small>스튜디오</small></span></a>
-  <span class="top-label">콘텐츠 워크스페이스</span>
-  <div class="top-end"><span class="naver-tag"><b>N</b> 네이버 블로그</span><span class="avatar" aria-label="내 작업공간">S</span></div>
+  <a class="brand" href="#cardnews"><span class="brand-icon"><svg><use href="#logo"/></svg></span><span>김영숙부동산 <small>스튜디오</small></span></a>
+  <span class="top-label">인스타그램 콘텐츠 워크스페이스</span>
+  <div class="top-end"><span class="naver-tag" hidden><b>N</b> 네이버 블로그</span><span class="avatar" aria-label="내 작업공간">S</span></div>
 </header>
 <div class="layout">
   <aside class="sidebar">
     <p class="nav-label">작업공간</p>
     <nav aria-label="작업공간">
-      <a href="#write" data-nav="write"><svg><use href="#pen"/></svg> 새 글 작성</a>
-      <a href="#drafts" data-nav="drafts"><svg><use href="#folder"/></svg> 초안 보관함 <span id="draft-count" class="count">0</span></a>
-      <a href="#guide" data-nav="guide"><svg><use href="#book"/></svg> 검색 노출 가이드</a>
+      <a href="#cardnews" data-nav="cardnews"><svg><use href="#cards"/></svg> 카드뉴스 생성기 <span class="tool-badge">MAIN</span></a>
     </nav>
     <div class="sidebar-bottom">
-      <p class="nav-label">콘텐츠 도구</p>
-      <nav aria-label="콘텐츠 도구">
-        <a href="#cardnews" data-nav="cardnews"><svg><use href="#cards"/></svg> 카드뉴스 생성기 <span class="tool-badge">NEW</span></a>
+      <p class="nav-label">블로그 도구</p>
+      <nav aria-label="블로그 도구">
+        <a href="#write" data-nav="write"><svg><use href="#pen"/></svg> 새 글 작성</a>
+        <a href="#drafts" data-nav="drafts"><svg><use href="#folder"/></svg> 초안 보관함 <span id="draft-count" class="count">0</span></a>
+        <a href="#guide" data-nav="guide"><svg><use href="#book"/></svg> 검색 노출 가이드</a>
       </nav>
     </div>
     <div class="sidebar-note"><span class="green-dot"></span> 이 브라우저에 자동 저장</div>
   </aside>
-  <main>
-    <section id="view-write">
+  <main class="cardnews-mode">
+    <section id="view-write" hidden>
       <div class="hero">
         <div class="hero-text">
           <p class="eyebrow"><span></span> BLOG WRITING STUDIO</p>
@@ -189,7 +189,7 @@
         <article class="card guide"><span class="feature-icon"><svg><use href="#file"/></svg></span><h2>스마트에디터 발행</h2><p>네이버는 외부 글쓰기 API를 종료했습니다. 이 사이트에서 초안을 만든 뒤 스마트에디터에 붙여넣고, 네이버에서 즉시 또는 예약 발행할 수 있습니다.</p><a href="https://developers.naver.com/notice/article/7527" target="_blank" rel="noopener">글쓰기 API 종료 공지 ↗</a></article>
       </div>
     </section>
-    <section id="view-cardnews" class="cardnews-view" hidden>
+    <section id="view-cardnews" class="cardnews-view">
       <iframe class="cardnews-frame" src="./cardnews/index.html" title="인스타그램 카드뉴스 생성기"></iframe>
     </section>
     <footer><span>KIM YOUNGSOOK REAL ESTATE STUDIO</span><span>네이버 공식 서비스와 독립적으로 운영되는 글쓰기 도구</span></footer>
