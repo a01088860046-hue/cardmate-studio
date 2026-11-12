@@ -1,4 +1,4 @@
-name: Deploy Cardmate to GitHub Pages
+name: Deploy Kim Youngsook Studio to GitHub Pages
 
 on:
   push:
